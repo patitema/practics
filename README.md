@@ -2,26 +2,6 @@
 
 Проект разделен на frontend и backend части.
 
-## Структура проекта
-
-```
-practics/
-├── frontend/          # Frontend часть (React)
-│   ├── src/
-│   │   ├── hooks/Notes/useNotes.jsx    # Хук для работы с заметками
-│   │   ├── components/Notes/           # Компоненты заметок
-│   │   │   ├── NoteForm.jsx            # Форма создания/редактирования
-│   │   │   ├── NoteCard.jsx            # Карточка заметки
-│   │   │   └── NotesList.jsx           # Список заметок
-│   │   └── pages/Notes.jsx             # Страница заметок
-│   ├── public/data/notes.json          # Данные (не используется)
-│   └── package.json
-└── backend/           # Backend часть (Express)
-    ├── data/notes.json                 # Данные заметок
-    ├── server.js                       # Сервер
-    └── package.json
-```
-
 ## Установка зависимостей
 
 1. Установите зависимости для backend:
