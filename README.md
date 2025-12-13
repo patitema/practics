@@ -1,4 +1,4 @@
-# Practics - Заметки
+# Практики на React
 
 Проект разделен на frontend и backend части.
 
@@ -25,7 +25,7 @@ npm install
 cd backend
 npm run dev
 ```
-Сервер будет доступен на http://localhost:3001
+Сервер будет доступен на http://localhost:3000
 
 2. Запустите frontend:
 ```bash
