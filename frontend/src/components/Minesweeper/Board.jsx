@@ -14,10 +14,10 @@ export function Board({ board, onCellClick, onRightClick }) {
     )
 
     const boardRows = Array.from({ length: 9 }, (_, row) => (
-        <div key={row} className="board-row">
+        <div key={row} className="board-row-minesweeper">
             {Array.from({ length: 9 }, (_, col) => renderCell(row, col))}
         </div>
     ))
 
-    return <div className="game-board">{boardRows}</div>
+    return <div className="game-board-minesweeper">{boardRows}</div>
 }

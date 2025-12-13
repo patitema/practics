@@ -1,0 +1,59 @@
+.city-page {
+    width: 60%;
+    margin-top: 7%;
+    padding: 20px;
+    padding-bottom: 60px;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.city-page__title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    margin-right: 50px;
+}
+
+.city-page__description {
+    margin-top: 20px;
+    font-size: 24px;
+    width: 90%;
+}
+
+.city-page__image {
+    height: 500px;
+    border-radius: 8px;
+}
+
+.city-page__notfound {
+    color: #ff5555;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.back-btn {
+    position: relative;
+    float: left;
+    border: none;
+    background-color: #222;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    transition: all 0.2s ease-out;
+}
+
+.back-btn:hover {
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px #fff;
+    transform: scale(1.1);
+}

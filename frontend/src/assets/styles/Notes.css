@@ -26,7 +26,7 @@
 }
 
 .add-note-btn {
-    background-color: #007bff;
+    background-color: #ee5a24;
     color: white;
     font-weight: bold;
     border: none;
@@ -38,7 +38,7 @@
 }
 
 .add-note-btn:hover {
-    background-color: #0056b3;
+    background-color: #ee5a24;
 }
 
 .notes-container {
@@ -56,7 +56,6 @@
     min-width: 400px;
 }
 
-/* Note Form Styles */
 .note-form-container {
     background: #f8f9fa;
     padding: 20px;
@@ -242,7 +241,6 @@
     font-size: 14px;
 }
 
-/* Loading and Error States */
 .loading {
     text-align: center;
     padding: 20px;

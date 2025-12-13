@@ -36,16 +36,19 @@ export default function Minesweeper() {
     }
 
     return (
-        <div className="game">
+        <div className="game-minesweeper">
             <div className="game-info">
                 <div className={getStatusClass()}>{getStatusText()}</div>
                 <div className="flags-counter">Флаги: {flagsCount} / 10</div>
-                <button className="reset-button" onClick={handleReset}>
+                <button
+                    className="reset-button-minesweeper"
+                    onClick={handleReset}
+                >
                     Новая игра
                 </button>
             </div>
 
-            <div className="game-board-container">
+            <div className="game-board-container-minesweeper">
                 <Board
                     board={board}
                     onCellClick={handleCellClick}

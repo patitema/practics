@@ -10,7 +10,7 @@ export default function Home() {
                 <nav className="list-projects">
                     <Link to="/notes" className="project">
                         {' '}
-                        Заметк <span>📝</span>
+                        Заметки <span>📝</span>
                     </Link>
                     <Link to="/cities" className="project">
                         {' '}

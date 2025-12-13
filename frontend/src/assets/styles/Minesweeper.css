@@ -1,4 +1,4 @@
-.game {
+.game-minesweeper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +36,7 @@
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.reset-button {
+.reset-button-minesweeper {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -49,31 +49,31 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.reset-button:hover {
+.reset-button-minesweeper:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     background: linear-gradient(135deg, #ee5a24, #ff6b6b);
 }
 
-.reset-button:active {
+.reset-button-minesweeper:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.game-board-container {
+.game-board-container-minesweeper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.game-board {
+.game-board-minesweeper {
     display: inline-block;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     border: 3px solid rgba(255, 255, 255, 0.3);
 }
 
-.board-row {
+.board-row-minesweeper {
     display: flex;
 }
 
@@ -129,49 +129,4 @@
 .cell.mine:hover {
     transform: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
-    .cell {
-        width: 35px;
-        height: 35px;
-        font-size: 16px;
-    }
-
-    .game-status {
-        font-size: 20px;
-    }
-
-    .flags-counter {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 400px) {
-    .cell {
-        width: 30px;
-        height: 30px;
-        font-size: 14px;
-    }
-
-    .game-status {
-        font-size: 18px;
-    }
-
-    .flags-counter {
-        font-size: 14px;
-    }
 }

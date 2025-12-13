@@ -5,6 +5,7 @@ import Notes from './pages/Notes.jsx'
 import Minesweeper from './pages/Minesweeper.jsx'
 import TicTac from './pages/TicTac.jsx'
 import NotFound from './pages/404.jsx'
+import CityPage from './pages/CityPage.jsx'
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
     {
         path: '/cities',
         element: <Cities />,
+    },
+    {
+        path: '/city/:cityName',
+        element: <CityPage />,
     },
     {
         path: '/minesweeper',

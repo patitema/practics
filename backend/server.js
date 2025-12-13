@@ -1,15 +1,14 @@
 const express = require('express')
 const fs = require('fs').promises
 const path = require('path')
+const fetch = require('node-fetch')
 
 const app = express()
 const PORT = 3000
 const DATA_FILE = path.join(__dirname, 'data', 'notes.json')
 
-// Middleware
 app.use(express.json())
 
-// CORS
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*')
     res.header(
@@ -23,7 +22,6 @@ app.use((req, res, next) => {
     next()
 })
 
-// Helper function to read notes
 async function readNotes() {
     try {
         const data = await fs.readFile(DATA_FILE, 'utf8')
@@ -34,7 +32,6 @@ async function readNotes() {
     }
 }
 
-// Helper function to write notes
 async function writeNotes(notes) {
     try {
         await fs.writeFile(DATA_FILE, JSON.stringify(notes, null, 2), 'utf8')
@@ -44,7 +41,6 @@ async function writeNotes(notes) {
     }
 }
 
-// GET /api/notes - Get all notes
 app.get('/api/notes', async (req, res) => {
     try {
         const notes = await readNotes()
@@ -54,7 +50,6 @@ app.get('/api/notes', async (req, res) => {
     }
 })
 
-// GET /api/notes/:id - Get note by ID
 app.get('/api/notes/:id', async (req, res) => {
     try {
         const notes = await readNotes()
@@ -70,7 +65,6 @@ app.get('/api/notes/:id', async (req, res) => {
     }
 })
 
-// POST /api/notes - Create new note
 app.post('/api/notes', async (req, res) => {
     try {
         const { title, content } = req.body
@@ -99,7 +93,6 @@ app.post('/api/notes', async (req, res) => {
     }
 })
 
-// PUT /api/notes/:id - Update note
 app.put('/api/notes/:id', async (req, res) => {
     try {
         const { id } = req.params
@@ -134,7 +127,6 @@ app.put('/api/notes/:id', async (req, res) => {
     }
 })
 
-// DELETE /api/notes/:id - Delete note
 app.delete('/api/notes/:id', async (req, res) => {
     try {
         const { id } = req.params
@@ -152,7 +144,31 @@ app.delete('/api/notes/:id', async (req, res) => {
     }
 })
 
-// Start server
+app.get('/api/unsplash/search', async (req, res) => {
+    try {
+        const { query, per_page = 1 } = req.query
+        const apiKey = process.env.UNSPLASH_ACCESS_KEY || '8Lw6Tu5pGaW16DwZHXd88kJwu7KyZW8zS8ymo2hIkQI'
+        
+        if (!query) {
+            return res.status(400).json({ error: 'Query parameter is required' })
+        }
+        
+        const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=${per_page}&client_id=${apiKey}`
+        
+        const response = await fetch(url)
+        
+        if (!response.ok) {
+            return res.status(response.status).json({ error: 'Failed to fetch from Unsplash' })
+        }
+        
+        const data = await response.json()
+        res.json(data)
+    } catch (error) {
+        console.error('Error fetching from Unsplash:', error)
+        res.status(500).json({ error: 'Internal server error' })
+    }
+})
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`)
 })

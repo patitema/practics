@@ -23,7 +23,6 @@ function placeMines(board, firstClickRow, firstClickCol) {
         const row = Math.floor(Math.random() * ROWS)
         const col = Math.floor(Math.random() * COLS)
 
-        // Don't place mine on first click or where mine already exists
         if (
             (row === firstClickRow && col === firstClickCol) ||
             newBoard[row][col].isMine
@@ -35,11 +34,10 @@ function placeMines(board, firstClickRow, firstClickCol) {
         minesPlaced++
     }
 
-    // Calculate adjacent mines
     for (let row = 0; row < ROWS; row++) {
         for (let col = 0; col < COLS; col++) {
             if (newBoard[row][col].isMine) {
-                newBoard[row][col].adjacentMines = -1 // -1 for mines
+                newBoard[row][col].adjacentMines = -1
             } else {
                 let count = 0
                 for (
@@ -98,7 +96,7 @@ function checkWin(board) {
 
 export function useMinesweeper() {
     const [board, setBoard] = useState(createEmptyBoard())
-    const [gameStatus, setGameStatus] = useState('playing') // 'playing' | 'won' | 'lost'
+    const [gameStatus, setGameStatus] = useState('playing')
     const [firstClick, setFirstClick] = useState(true)
     const [flagsCount, setFlagsCount] = useState(0)
 
@@ -110,12 +108,10 @@ export function useMinesweeper() {
             if (cell.isRevealed || cell.isFlagged) return
 
             if (firstClick) {
-                // Place mines after first click
                 const boardWithMines = placeMines(board, row, col)
                 setBoard(boardWithMines)
                 setFirstClick(false)
 
-                // Reveal the clicked cell and adjacent cells
                 const revealedBoard = revealCell(boardWithMines, row, col)
                 setBoard(revealedBoard)
 
